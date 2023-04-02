@@ -1,0 +1,21 @@
+.footer {
+  background: #070720;
+  flex: 0 0 80px;
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  &__copyright {
+    color: #fff;
+    margin-bottom: 0;
+    text-align: center;
+
+    a {
+      color: #e53637;
+      transition: color 0.3s;
+      &:hover {
+        color: #ffff;
+      }
+    }
+  }
+}

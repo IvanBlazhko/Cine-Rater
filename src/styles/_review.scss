@@ -1,0 +1,37 @@
+.review {
+  margin-bottom: 40px;
+  &__head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    justify-content: space-between;
+  }
+  &__item {
+    background: #1d1e396b;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: 24px;
+    text-transform: capitalize;
+    @media (max-width: 450px) {
+      font-size: 18px;
+    }
+  }
+  &__date {
+    font-size: 16px;
+    color: #e53637;
+    @media (max-width: 450px) {
+      font-size: 12px;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+}
