@@ -1,0 +1,12 @@
+.trailer__player {
+  max-width: 750px;
+  height: 470px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    height: 300px;
+  }
+  @media (max-width: 475px) {
+    height: 200px;
+  }
+}

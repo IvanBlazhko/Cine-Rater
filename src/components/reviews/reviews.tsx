@@ -34,7 +34,7 @@ const Reviews: React.FC<IProps> = ({ id }) => {
       <MovieTitle title="Reviews" />
       <div className="review__items">
         {stateData === 'pending' && <Loader />}
-        {data ? (
+        {data &&
           data.map(item => (
             <ReviewsItem
               key={item.id}
@@ -43,9 +43,11 @@ const Reviews: React.FC<IProps> = ({ id }) => {
               author={item.author}
               id={item.id}
             />
-          ))
-        ) : (
-          <p>We have not found any comments for this movie.</p>
+          ))}
+        {data?.length === 0 && stateData === 'fulfilled' && (
+          <div className="review__message">
+            We have not found any comments for this movie.
+          </div>
         )}
       </div>
     </div>
