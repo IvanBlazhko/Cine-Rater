@@ -8,6 +8,7 @@ import { IMovie } from '../../../interfaces/movie.interface';
 
 import Reviews from '../../reviews/reviews';
 import Loader from '../../loader/loader';
+import Buttons from '../../buttons/buttons';
 
 const MovieItem: React.FC = () => {
   const { id } = useParams();
@@ -76,9 +77,13 @@ const MovieItem: React.FC = () => {
               <p>{data?.overview}</p>
               <div className="movie__details__widget"></div>
               <div className="movie__details__btn">
-                <span className="follow-btn">Follow</span>
+                <Buttons
+                  id={id ? id : ''}
+                  title={data?.original_title}
+                  img={data?.poster_path}
+                />
                 <Link
-                  to={`/trailer/${data?.imdb_id}/${id}/${data?.original_title}`}
+                  to={`/trailer${data?.poster_path}/${id}/${data?.original_title}`}
                   className="watch-btn"
                 >
                   Watch Trailer Now

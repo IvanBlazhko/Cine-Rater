@@ -1,12 +1,37 @@
-.trailer__player {
-  max-width: 750px;
-  height: 470px;
-  margin: 0 auto;
+.trailer {
+  &__player {
+    max-width: 750px;
+    height: 470px;
+    margin: 0 auto;
 
-  @media (max-width: 767px) {
-    height: 300px;
+    @media (max-width: 767px) {
+      height: 300px;
+    }
+    @media (max-width: 475px) {
+      height: 200px;
+    }
   }
-  @media (max-width: 475px) {
-    height: 200px;
+  &__head {
+    display: flex;
+    align-items: center;
+
+    &__btn {
+      justify-content: flex-end;
+      flex: 1 1 auto;
+
+      span {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.head__buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+
+  .follow-btn {
+    margin-right: 0;
   }
 }

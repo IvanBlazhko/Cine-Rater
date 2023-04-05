@@ -8,9 +8,10 @@ import { ITrailer } from '../../interfaces/trailer.interface';
 import MovieTitle from '../../components/movie/movieTitle';
 import Loader from '../../components/loader/loader';
 import Reviews from '../../components/reviews/reviews';
+import Buttons from '../../components/buttons/buttons';
 
 const Trailer: React.FC = () => {
-  const { id, title } = useParams();
+  const { id, title, img } = useParams();
 
   const [stateData, setStateData] = useState('fulfilled');
   const [data, setData] = useState<ITrailer | null>(null);
@@ -38,7 +39,16 @@ const Trailer: React.FC = () => {
 
   return (
     <>
-      <MovieTitle title={title ? title : ''} />
+      <div className="trailer__head">
+        <MovieTitle title={title ? title : ''} />
+        <div className="movie__details__btn head__buttons">
+          <Buttons
+            id={id ? id : ''}
+            title={title ? title : ''}
+            img={img ? img : ''}
+          />
+        </div>
+      </div>
       {stateData === 'pending' && <Loader />}
       {data && (
         <div className="trailer__player">

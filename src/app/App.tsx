@@ -26,7 +26,7 @@ const App: React.FC = () => {
             <Route path="trending" element={<TrendingPage />} />
             <Route path="premiere" element={<PremierePage />} />
             <Route path="saved" element={<Saved />} />
-            <Route path="trailer/:imdb_id/:id/:title" element={<Trailer />} />
+            <Route path="trailer/:img/:id/:title" element={<Trailer />} />
             <Route path="movie/:id" element={<MovieItem />} />
             <Route path="*" element={<NotFound />} />
           </Route>
