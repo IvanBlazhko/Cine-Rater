@@ -18,7 +18,5 @@ export const fetchReview = async (id: string) => {
 export const fetchTrailer = async (id: string) => {
   const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}`);
 
-  console.log(response.data.results);
-
   return response.data.results;
 };
