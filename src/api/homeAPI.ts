@@ -11,11 +11,12 @@ export const fetchTrending = async (limit?: number) => {
 };
 
 export const fetchPopular = async (
+  year: string,
   limit?: number | null,
   genresId?: number | null
 ) => {
   const response = await axios.get(
-    `discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&primary_release_year=2023&with_genres=${
+    `discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&primary_release_year=${year}&with_genres=${
       genresId ? genresId : ''
     }`
   );

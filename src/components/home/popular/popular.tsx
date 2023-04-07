@@ -17,7 +17,7 @@ const Popular: React.FC = () => {
       try {
         setStateData('pending');
 
-        const data = await fetchPopular(8);
+        const data = await fetchPopular('2023', 8, null);
         setStateData('fulfilled');
         setData(data);
       } catch {
