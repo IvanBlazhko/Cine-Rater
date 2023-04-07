@@ -20,3 +20,9 @@ export const fetchTrailer = async (id: string) => {
 
   return response.data.results;
 };
+
+export const fetchGenres = async () => {
+  const response = await axios.get(`genre/movie/list?api_key=${API_KEY}`);
+
+  return response.data.genres;
+};

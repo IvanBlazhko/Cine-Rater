@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { fetchPremiereSoon } from '../../../api/homeAPI';
+import { fetchPremiere } from '../../../api/homeAPI';
 import { IPremiere } from '../../../interfaces/premiere.interface';
 
 import PremiereItem from './premiereItem/premiereItem';
@@ -17,7 +17,7 @@ const Premiere: React.FC = () => {
       try {
         setStateData('pending');
 
-        const data = await fetchPremiereSoon(4);
+        const data = await fetchPremiere(4);
         setStateData('fulfilled');
         setData(data);
       } catch {

@@ -29,7 +29,7 @@ const Trending: React.FC = () => {
   return (
     <div className="product__left">
       <div className="trending__product">
-        <ProductsMenu href="trending" title="TRENDING NOW" />
+        <ProductsMenu href="movies" title="TRENDING NOW" />
         {stateData === 'rejected' && <Error />}
         {stateData === 'pending' && <Loader />}
         {data.length > 0 && (

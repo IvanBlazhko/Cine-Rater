@@ -10,17 +10,30 @@ export const fetchTrending = async (limit?: number) => {
   return response.data.results;
 };
 
-export const fetchPopular = async (limit?: number) => {
+export const fetchPopular = async (
+  year: string,
+  limit?: number | null,
+  genresId?: number | null
+) => {
   const response = await axios.get(
-    `discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&primary_release_year=2023`
+    `discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&primary_release_year=${year}&with_genres=${
+      genresId ? genresId : ''
+    }`
   );
 
   if (limit) response.data.results.length = limit;
   return response.data.results;
 };
 
-export const fetchPremiereSoon = async (limit?: number) => {
-  const response = await axios.get(`/movie/now_playing?api_key=${API_KEY}`);
+export const fetchPremiere = async (
+  limit?: number | null,
+  genresId?: number | null
+) => {
+  const response = await axios.get(
+    `/movie/now_playing?api_key=${API_KEY}&with_genres=${
+      genresId ? genresId : ''
+    }`
+  );
 
   if (limit) response.data.results.length = limit;
   return response.data.results;

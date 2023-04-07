@@ -1,13 +1,15 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Loader from '../components/loader/loader';
 
 import '../styles/style.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('../pages/home'));
 const MoviesPage = lazy(() => import('../pages/movies'));
-const TrendingPage = lazy(() => import('../pages/trending'));
+const PopularPage = lazy(() => import('../pages/popular/popularPage'));
 const PremierePage = lazy(() => import('../pages/premiere'));
 const Saved = lazy(() => import('../pages/saved'));
 const Trailer = lazy(() => import('../pages/trailer'));
@@ -23,7 +25,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="movies" element={<MoviesPage />} />
-            <Route path="trending" element={<TrendingPage />} />
+            <Route path="popular" element={<PopularPage />} />
             <Route path="premiere" element={<PremierePage />} />
             <Route path="saved" element={<Saved />} />
             <Route path="trailer/:img/:id/:title" element={<Trailer />} />
@@ -32,6 +34,7 @@ const App: React.FC = () => {
           </Route>
         </Routes>
       </Suspense>
+      <ToastContainer />
     </>
   );
 };
