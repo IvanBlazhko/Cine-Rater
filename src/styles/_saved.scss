@@ -1,0 +1,25 @@
+.saved {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  &__message {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: white;
+  }
+  &__btn {
+    font-size: 13px;
+    color: $white-color;
+    background: $primary-color;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+}

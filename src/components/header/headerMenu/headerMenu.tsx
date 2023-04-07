@@ -10,7 +10,7 @@ const HeaderMenu: React.FC<IProps> = ({ isOpen, handleOpen }) => {
   const navItem = [
     { href: '/', text: 'Home' },
     { href: 'movies', text: 'Movie' },
-    { href: 'trending', text: 'Trending' },
+    { href: 'popular', text: 'Popular' },
     { href: 'premiere', text: 'Premiere' },
     { href: 'saved', text: 'Saved' },
   ];

@@ -40,7 +40,6 @@ const SaveProvider: React.FC<IProps> = ({ children }) => {
       <SaveContext.Provider value={{ saved, addOnSave, removeOnSave }}>
         {children}
       </SaveContext.Provider>
-      ;
     </>
   );
 };

@@ -75,7 +75,6 @@ const MovieItem: React.FC = () => {
                 </span>
               </div>
               <p>{data?.overview}</p>
-              <div className="movie__details__widget"></div>
               <div className="movie__details__btn">
                 <Buttons
                   id={id ? id : ''}
