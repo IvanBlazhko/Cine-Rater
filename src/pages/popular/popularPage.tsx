@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { IPoster } from '../../interfaces/poster.interface';
 import { fetchPopular } from '../../api/homeAPI';
+import { IPoster } from '../../interfaces/poster.interface';
 import { IGenres } from '../../interfaces/genres.interface';
 
 import MovieTitle from '../../components/movie/movieTitle';
@@ -44,8 +44,8 @@ const PopularPage: React.FC = () => {
 
   return (
     <>
-      <div className="popular__head">
-        <MovieTitle title="Popular" />
+      <div className="title__head">
+        <MovieTitle title={`Popular In ${selectedYear}`} />
         <SelectYear handleSelect={handleSelect} selectedYear={selectedYear} />
       </div>
       <Genres handleGenre={handleGenre} genre={genre} />
