@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchPopular } from '../../../api/homeAPI';
-import { IPremiere } from '../../../interfaces/premiere.interface';
+import { IPoster } from '../../../interfaces/poster.interface';
 
 import ProductsMenu from '../../products/productsMenu/productsMenu';
 import Product from '../../products/product';
@@ -9,7 +9,7 @@ import Error from '../../error/error';
 import Loader from '../../loader/loader';
 
 const Popular: React.FC = () => {
-  const [data, setData] = useState<IPremiere[]>([]);
+  const [data, setData] = useState<IPoster[]>([]);
   const [stateData, setStateData] = useState('fulfilled');
 
   useEffect(() => {

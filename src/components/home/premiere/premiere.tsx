@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchPremiere } from '../../../api/homeAPI';
-import { IPremiere } from '../../../interfaces/premiere.interface';
+import { IPoster } from '../../../interfaces/poster.interface';
 
 import PremiereItem from './premiereItem/premiereItem';
 import ProductsMenu from '../../products/productsMenu/productsMenu';
@@ -9,7 +9,7 @@ import Error from '../../error/error';
 import Loader from '../../loader/loader';
 
 const Premiere: React.FC = () => {
-  const [data, setData] = useState<IPremiere[]>([]);
+  const [data, setData] = useState<IPoster[]>([]);
   const [stateData, setStateData] = useState('fulfilled');
 
   useEffect(() => {

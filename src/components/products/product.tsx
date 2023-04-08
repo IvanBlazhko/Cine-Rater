@@ -1,10 +1,10 @@
 import React from 'react';
 
 import ProductsItem from './productsItem/productsItem';
-import { IPremiere } from '../../interfaces/premiere.interface';
+import { IPoster } from '../../interfaces/poster.interface';
 
 interface IProps {
-  data: IPremiere[];
+  data: IPoster[];
 }
 
 const Product: React.FC<IProps> = ({ data }) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { IPoster } from '../../interfaces/poster.interface';
 import { IGenres } from '../../interfaces/genres.interface';
+import { IPoster } from '../../interfaces/poster.interface';
 import { fetchPremiere } from '../../api/homeAPI';
 
 import MovieTitle from '../../components/movie/movieTitle';

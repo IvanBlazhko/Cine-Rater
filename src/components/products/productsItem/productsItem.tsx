@@ -24,7 +24,9 @@ const ProductsItem: React.FC<IProps> = ({
   const [date, setDate] = useState('');
 
   useEffect(() => {
-    setDate(format(new Date(year), 'yyyy'));
+    if (year) {
+      setDate(format(new Date(year), 'yyyy'));
+    }
   }, [year]);
 
   return (
