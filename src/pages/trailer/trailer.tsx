@@ -49,6 +49,9 @@ const Trailer: React.FC = () => {
           />
         </div>
       </div>
+      {!data && stateData !== 'pending' && (
+        <div className="error">Sorry, we couldn't find a trailer.</div>
+      )}
       {stateData === 'pending' && <Loader />}
       {data && (
         <div className="trailer__player">

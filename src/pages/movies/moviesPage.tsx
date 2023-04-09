@@ -51,6 +51,9 @@ const MoviesPage: React.FC = () => {
       </div>
       {stateData === 'rejected' && <Error />}
       {stateData === 'pending' && <Loader />}
+      {data.length === 0 && stateData !== 'pending' && (
+        <div className="error">On request {search} nothing found</div>
+      )}
       <Movie data={data} />
     </>
   );
