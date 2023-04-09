@@ -12,7 +12,9 @@ interface IProps {
 const GenresItem: React.FC<IProps> = ({ handleGenre, genre, name, id }) => {
   return (
     <div
-      className={`genres__item ${genre.name === name ? 'active' : ''}`}
+      className={`genres__item ${
+        genre.name.toLowerCase() === name.toLowerCase() ? 'active' : ''
+      }`}
       onClick={() => handleGenre({ id, name })}
     >
       {name}
