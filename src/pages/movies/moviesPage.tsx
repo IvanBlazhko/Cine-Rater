@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
-import { IPoster } from '../../interfaces/poster.interface';
+import { useSearchParams } from 'react-router-dom';
 import { fetchTrending } from '../../api/homeAPI';
 import { fetchSearch } from '../../api/movieAPI';
+import { IPoster } from '../../interfaces/poster.interface';
 
+import MovieTitle from '../../components/movie/movieTitle';
+import Paginate from '../../components/paginate/paginate';
+import Loader from '../../components/loader/loader';
+import Search from '../../components/search/search';
 import Movie from '../../components/movie/movie';
 import Error from '../../components/error/error';
-import Loader from '../../components/loader/loader';
-import MovieTitle from '../../components/movie/movieTitle';
-import Search from '../../components/search/search';
-import Paginate from '../../components/paginate/paginate';
 
 const MoviesPage: React.FC = () => {
   const [data, setData] = useState<IPoster[]>([]);

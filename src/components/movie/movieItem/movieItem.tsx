@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
+import { fetchMovieItem } from '../../../api/movieAPI';
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-import { fetchMovieItem } from '../../../api/movieAPI';
 import { IMovie } from '../../../interfaces/movie.interface';
 
 import Reviews from '../../reviews/reviews';

@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useState, useEffect } from 'react';
+
 import { ISaveItem } from '../../interfaces/saveItem.interface';
 
 interface IProps {
@@ -10,6 +11,7 @@ interface ISaveContext {
   addOnSave?: (item: ISaveItem) => void;
   removeOnSave?: (id: string) => void;
 }
+
 export const SaveContext = createContext<ISaveContext>({});
 
 const SaveProvider: React.FC<IProps> = ({ children }) => {

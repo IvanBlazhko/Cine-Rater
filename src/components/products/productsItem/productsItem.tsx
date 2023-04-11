@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
-import viewImg from '../../../shared/productIMG/view.png';
 import { format } from 'date-fns';
+
+import viewImg from '../../../shared/productIMG/view.png';
 
 interface IProps {
   title: string;

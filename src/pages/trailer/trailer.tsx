@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+
 import ReactPlayer from 'react-player';
 
-import { useParams } from 'react-router-dom';
 import { fetchTrailer } from '../../api/movieAPI';
+import { useParams } from 'react-router-dom';
 import { ITrailer } from '../../interfaces/trailer.interface';
 
 import MovieTitle from '../../components/movie/movieTitle';
-import Loader from '../../components/loader/loader';
 import Reviews from '../../components/reviews/reviews';
 import Buttons from '../../components/buttons/buttons';
+import Loader from '../../components/loader/loader';
 
 const Trailer: React.FC = () => {
   const { id, title, img } = useParams();

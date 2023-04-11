@@ -8,13 +8,6 @@ const Buttons: React.FC<ISaveItem> = ({ id, title, img }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    if (saved?.some(obj => obj.id === id)) {
-      return setIsFavorite(true);
-    }
-    setIsFavorite(false);
-  }, [id, saved]);
-
   const handleSave = () => {
     const item: ISaveItem = {
       id,
@@ -24,6 +17,13 @@ const Buttons: React.FC<ISaveItem> = ({ id, title, img }) => {
 
     if (addOnSave) addOnSave(item);
   };
+
+  useEffect(() => {
+    if (saved?.some(obj => obj.id === id)) {
+      return setIsFavorite(true);
+    }
+    setIsFavorite(false);
+  }, [id, saved]);
 
   return (
     <>
