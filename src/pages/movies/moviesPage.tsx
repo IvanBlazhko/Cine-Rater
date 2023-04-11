@@ -10,22 +10,36 @@ import Error from '../../components/error/error';
 import Loader from '../../components/loader/loader';
 import MovieTitle from '../../components/movie/movieTitle';
 import Search from '../../components/search/search';
+import Paginate from '../../components/paginate/paginate';
 
 const MoviesPage: React.FC = () => {
   const [data, setData] = useState<IPoster[]>([]);
   const [stateData, setStateData] = useState('fulfilled');
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState('');
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
+
+  const handlePage = (num: number) => {
+    setPage(num);
+    setSearchParams({
+      query: search.toLocaleLowerCase().trim(),
+      page: num.toString(),
+    });
+  };
 
   const handleSearch = (text: string) => {
     setSearch(text);
+    setPage(1);
     setSearchParams({
       query: text.toLocaleLowerCase().trim(),
+      page: '1',
     });
   };
 
   useEffect(() => {
     setSearch(searchParams.get('query') ?? '');
+    setPage(Number(searchParams.get('page') ?? '1'));
   }, [searchParams]);
 
   useEffect(() => {
@@ -34,14 +48,17 @@ const MoviesPage: React.FC = () => {
         setStateData('pending');
 
         const data =
-          search.length > 0 ? await fetchSearch(search) : await fetchTrending();
+          search.length > 0
+            ? await fetchSearch(search, page)
+            : await fetchTrending(page);
         setStateData('fulfilled');
-        setData(data);
+        setData(data.results);
+        setTotalPage(data.total_pages);
       } catch {
         setStateData('rejected');
       }
     })();
-  }, [search]);
+  }, [search, page]);
 
   return (
     <>
@@ -54,7 +71,10 @@ const MoviesPage: React.FC = () => {
       {data.length === 0 && stateData !== 'pending' && (
         <div className="error">On request {search} nothing found</div>
       )}
-      <Movie data={data} />
+      {data.length > 0 && stateData === 'fulfilled' && <Movie data={data} />}
+      {totalPage > 1 && stateData !== 'pending' && (
+        <Paginate totalPage={totalPage} page={page} handlePage={handlePage} />
+      )}
     </>
   );
 };
