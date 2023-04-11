@@ -17,9 +17,9 @@ const Premiere: React.FC = () => {
       try {
         setStateData('pending');
 
-        const data = await fetchPremiere(4);
+        const data = await fetchPremiere(1, 4);
         setStateData('fulfilled');
-        setData(data);
+        setData(data.results);
       } catch {
         setStateData('rejected');
       }
