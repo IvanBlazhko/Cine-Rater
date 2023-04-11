@@ -26,10 +26,10 @@ export const fetchGenres = async () => {
 
   return response.data.genres;
 };
-export const fetchSearch = async (query: string) => {
+export const fetchSearch = async (query: string, page: number) => {
   const response = await axios.get(
-    `search/movie?api_key=${API_KEY}&query=${query}`
+    `search/movie?api_key=${API_KEY}&query=${query}&page=${page}`
   );
 
-  return response.data.results;
+  return response.data;
 };

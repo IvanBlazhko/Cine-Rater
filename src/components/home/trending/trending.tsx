@@ -17,8 +17,8 @@ const Trending: React.FC = () => {
       try {
         setStateData('pending');
 
-        const data = await fetchTrending(6);
-        setData(data);
+        const data = await fetchTrending(1, 6);
+        setData(data.results);
         setStateData('fulfilled');
       } catch {
         setStateData('rejected');
