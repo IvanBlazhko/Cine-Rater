@@ -1,7 +1,8 @@
 import React from 'react';
 
-import ProductsItem from './productsItem/productsItem';
 import { IPoster } from '../../interfaces/poster.interface';
+
+import ProductsItem from './productsItem/productsItem';
 
 interface IProps {
   data: IPoster[];

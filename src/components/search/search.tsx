@@ -11,10 +11,6 @@ interface IProps {
 const Search: React.FC<IProps> = ({ handleSearch, search }) => {
   const [searchState, setSearchState] = useState('');
 
-  useEffect(() => {
-    if (search.length > 0) setSearchState(search);
-  }, [search]);
-
   const handleCleared = () => {
     handleSearch('');
     setSearchState('');
@@ -25,6 +21,10 @@ const Search: React.FC<IProps> = ({ handleSearch, search }) => {
       handleSearch(searchState);
     }
   };
+
+  useEffect(() => {
+    if (search.length > 0) setSearchState(search);
+  }, [search]);
 
   return (
     <div className="search">

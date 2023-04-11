@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-import { IGenres } from '../../interfaces/genres.interface';
-import { IPoster } from '../../interfaces/poster.interface';
 import { fetchPremiere } from '../../api/homeAPI';
 import { useSearchParams } from 'react-router-dom';
+import { IGenres } from '../../interfaces/genres.interface';
+import { IPoster } from '../../interfaces/poster.interface';
 
 import MovieTitle from '../../components/movie/movieTitle';
-import Error from '../../components/error/error';
-import Loader from '../../components/loader/loader';
-import Movie from '../../components/movie/movie';
-import Genres from '../../components/genres/genres';
 import Paginate from '../../components/paginate/paginate';
+import Loader from '../../components/loader/loader';
+import Genres from '../../components/genres/genres';
+import Error from '../../components/error/error';
+import Movie from '../../components/movie/movie';
 
 const PremierePage: React.FC = () => {
   const [data, setData] = useState<IPoster[]>([]);

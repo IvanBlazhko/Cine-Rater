@@ -6,12 +6,12 @@ import { IPoster } from '../../interfaces/poster.interface';
 import { IGenres } from '../../interfaces/genres.interface';
 
 import MovieTitle from '../../components/movie/movieTitle';
-import Error from '../../components/error/error';
-import Loader from '../../components/loader/loader';
-import Movie from '../../components/movie/movie';
-import Genres from '../../components/genres/genres';
 import SelectYear from '../../components/selectYear/selectYear';
 import Paginate from '../../components/paginate/paginate';
+import Loader from '../../components/loader/loader';
+import Genres from '../../components/genres/genres';
+import Error from '../../components/error/error';
+import Movie from '../../components/movie/movie';
 
 const PopularPage: React.FC = () => {
   const [data, setData] = useState<IPoster[]>([]);
