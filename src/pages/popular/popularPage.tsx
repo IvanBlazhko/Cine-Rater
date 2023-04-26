@@ -56,26 +56,29 @@ const PopularPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const id = queryParams.get('id') ?? '';
-    const genre = queryParams.get('genre') ?? '';
+    const id = queryParams.get('id') ?? 0;
+    const genre = queryParams.get('genre') ?? 'All';
 
-    if (id.length > 0 && genre.length > 0) {
-      setGenre({ id: Number(id), name: genre });
-    }
+    setGenre({ id: Number(id), name: genre });
 
     setSelectedYear(queryParams.get('year') ?? '2023');
     setPage(Number(queryParams.get('page') ?? '1'));
   }, [queryParams]);
 
   useEffect(() => {
+    const id = queryParams.get('id') ?? 0;
+    const genre = queryParams.get('genre') ?? 'All';
+    const page = queryParams.get('page') ?? '1';
+    const year = queryParams.get('year') ?? '2023';
+
     (async () => {
       try {
         setStateData('pending');
 
         const data =
-          genre.name !== 'All'
-            ? await fetchPopular(selectedYear, page, null, genre.id)
-            : await fetchPopular(selectedYear, page, null, null);
+          genre.toLowerCase() !== 'all'
+            ? await fetchPopular(year, Number(page), null, Number(id))
+            : await fetchPopular(year, Number(page), null, null);
         setStateData('fulfilled');
         setData(data.results);
         setTotalPage(data.total_pages);
@@ -83,7 +86,7 @@ const PopularPage: React.FC = () => {
         setStateData('rejected');
       }
     })();
-  }, [genre, selectedYear, page]);
+  }, [genre, selectedYear, page, queryParams]);
 
   return (
     <>
