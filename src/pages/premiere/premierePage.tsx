@@ -40,24 +40,27 @@ const PremierePage: React.FC = () => {
   };
 
   useEffect(() => {
-    const id = searchParams.get('id') ?? '';
-    const genre = searchParams.get('genre') ?? '';
+    const id = searchParams.get('id') ?? 1;
+    const genre = searchParams.get('genre') ?? 'All';
 
-    if (id.length > 0 && genre.length > 0) {
-      setGenre({ id: Number(id), name: genre });
-    }
+    setGenre({ id: Number(id), name: genre });
+
     setPage(Number(searchParams.get('page') ?? '1'));
   }, [searchParams]);
 
   useEffect(() => {
+    const id = searchParams.get('id') ?? 0;
+    const genre = searchParams.get('genre') ?? 'All';
+    const page = searchParams.get('page') ?? '1';
+
     (async () => {
       try {
         setStateData('pending');
 
         const data =
-          genre.name !== 'All'
-            ? await fetchPremiere(page, null, genre.id)
-            : await fetchPremiere(page);
+          genre !== 'All'
+            ? await fetchPremiere(Number(page), null, Number(id))
+            : await fetchPremiere(Number(page));
         setStateData('fulfilled');
         setData(data.results);
         setTotalPage(data.total_pages);
@@ -65,7 +68,7 @@ const PremierePage: React.FC = () => {
         setStateData('rejected');
       }
     })();
-  }, [genre, page]);
+  }, [genre, page, searchParams]);
 
   return (
     <>
